@@ -4,18 +4,36 @@
 DESCRIPTION = "Communication core for SOTA - Software update Over The Air."
 HOMEPAGE = "https://gitlab.com/aananthcn/sota-com"
 LICENSE = "GPLv2"
-SECTION = ""
-DEPENDS = "xdelta3 jansson"
-
-LIC_FILES_CHKSUM = "file://LICENSE;md5=2c1c00f9d3ed9e24fa69b932b7e7aff2"
-
-SRC_URI = "git://gitlab.com/aananthcn/sota-com.git;protocol=https"
-#SRCREV = "13c746675f7518d8d2bc639cba446964781d1d52"
 
 SRC_URI[md5sum] = "80b70cf716d7ccfc5e9b79a4fd014366"
 SRC_URI[sha256sum] = "9b6b6a771c908adaadd078f4d128c00468ab49230d85b57658f04a0b9549e873"
 
 SRCREV_default_pn-sota-com="${AUTOREV}"
 
+LIC_FILES_CHKSUM = "file://LICENSE;md5=2c1c00f9d3ed9e24fa69b932b7e7aff2"
+
+
+
+DEPENDS = " xdelta3 jansson"
+RDEPENDS_sota-com += " libcrypto libssl zlib"
+
 S = "${WORKDIR}/git"
 
+# Note: Please make sure you add gitlab.com in ~/.ssh/config with port value set to 22 
+#       and gitlab user name like below
+#      
+# Host gitlab.com 
+#        IdentityFile ~/.ssh/id_rsa
+#        Port 22
+#        User aananthcn
+#        TCPKeepAlive yes
+#        IdentitiesOnly yes
+do_fetch() {
+    git clone git@gitlab.com:aananthcn/sota-com.git ${WORKDIR}/git
+}
+
+do_install() {
+    install -d ${D}/${bindir}
+    install -m 0544 ${S}/sotaclient ${D}/${bindir}
+    install -m 0644 ${S}/client/client_info.json ${D}/${sysconfdir}
+}
