@@ -12,4 +12,4 @@ IMAGE_INSTALL += " \
 SPLASH = "psplash-raspberrypi"
 
 IMAGE_FEATURES += " ssh-server-dropbear splash"
-IMAGE_INSTALL_append = " sota-com sota-updater" 
+IMAGE_INSTALL_append = " sota-com sota-updater xdelta3 usbutils iw connman"
