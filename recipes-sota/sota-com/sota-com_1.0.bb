@@ -35,6 +35,7 @@ do_fetch() {
 do_install() {
     install -d ${D}/${bindir}
     install -m 0544 ${S}/sotaclient ${D}/${bindir}
+    install -m 0544 ${S}/sota.sh ${D}/${bindir}
     install -d ${D}/${sysconfdir}
     install -m 0644 ${S}/client/client_info.json ${D}/${sysconfdir}
 }

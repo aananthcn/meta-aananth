@@ -12,4 +12,6 @@ IMAGE_INSTALL += " \
 SPLASH = "psplash-raspberrypi"
 
 IMAGE_FEATURES += " ssh-server-dropbear splash"
-IMAGE_INSTALL_append = " sota-com sota-updater xdelta3 usbutils iw connman wpa-supplicant wireless-tools"
+IMAGE_INSTALL_append = " sota-com sota-updater xdelta usbutils linux-firmware \
+                         iw connman wpa-supplicant wireless-tools \
+"
