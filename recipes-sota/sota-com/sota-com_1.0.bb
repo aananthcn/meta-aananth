@@ -14,8 +14,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2c1c00f9d3ed9e24fa69b932b7e7aff2"
 
 
 
-DEPENDS = " xdelta3 jansson"
-RDEPENDS_sota-com += " libcrypto libssl zlib jansson"
+DEPENDS = " xdelta3 jansson openssl zlib"
+RDEPENDS_sota-com += " libcrypto openssl bzip2 jansson"
 
 S = "${WORKDIR}/git"
 
