@@ -7,11 +7,12 @@ include recipes-core/images/core-image-minimal.bb
 # Include modules in rootfs
 IMAGE_INSTALL += " \
         kernel-modules \
-                "
+"
 
 SPLASH = "psplash-raspberrypi"
 
-IMAGE_FEATURES += " ssh-server-dropbear splash"
+IMAGE_FEATURES += " ssh-server-dropbear"
 IMAGE_INSTALL_append = " sota-com sota-updater xdelta usbutils linux-firmware \
-                         iw connman wpa-supplicant wireless-tools \
+                         connman connman-client wpa-supplicant wireless-tools \
+                         iw rpm sched-test \
 "

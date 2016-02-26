@@ -3,19 +3,19 @@
 
 DESCRIPTION = "Communication core for SOTA - Software update Over The Air."
 HOMEPAGE = "https://gitlab.com/aananthcn/sota-com"
-LICENSE = "GPLv2"
+LICENSE = "MPLv2"
 
-SRC_URI[md5sum] = "80b70cf716d7ccfc5e9b79a4fd014366"
+SRC_URI[md5sum] = "815ca599c9df247a0c7f619bab123dad"
 SRC_URI[sha256sum] = "9b6b6a771c908adaadd078f4d128c00468ab49230d85b57658f04a0b9549e873"
 
 SRCREV_default_pn-sota-com="${AUTOREV}"
 
-LIC_FILES_CHKSUM = "file://LICENSE;md5=2c1c00f9d3ed9e24fa69b932b7e7aff2"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=815ca599c9df247a0c7f619bab123dad"
 
 
 
 DEPENDS = " xdelta3 jansson openssl zlib"
-RDEPENDS_sota-com += " libcrypto openssl bzip2 jansson"
+RDEPENDS_sota-com += " libcrypto openssl bzip2 jansson libtar"
 
 S = "${WORKDIR}/git"
 

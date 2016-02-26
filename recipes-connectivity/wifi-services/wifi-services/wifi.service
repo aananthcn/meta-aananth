@@ -1,0 +1,11 @@
+[Unit]
+Description=Aananth's WiFi service
+After=connman.service
+Requires=connman.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh /usr/bin/wifi-init.sh
+
+[Install]
+WantedBy=multi-user.target
